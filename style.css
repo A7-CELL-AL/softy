@@ -79,8 +79,17 @@ h1, h2{
     background: black;
     border-right: 3px solid gold;
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: width 0.5s ease-in-out;
     padding-top: 60px;
+}
+#menu-list {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+#sidenav.active #menu-list {
+    opacity: 1;
+    transform: translateX(0);
 }
 #sidenav ul {
     list-style-type: none;

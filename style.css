@@ -134,29 +134,25 @@ h1, h2 {
 /* Mobile sidebar handling */
 @media (max-width: 768px) {
     .sidebar {
-        left: -220px;
-        width: 220px;
+        left: -200px;
+        width: 200px;
+        transition: left 0.3s;
     }
-    
-    .sidebar.expanded {
+    .sidebar.sidebar-open {
         left: 0;
     }
-    
     .sidebar-toggle {
         display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
     }
-    
-    .container {
-        margin-left: 0;
-    }
-    
-    /* Overlay when sidebar is open */
     body.sidebar-active::before {
         content: "";
         position: fixed;
         top: 0; left: 0; right: 0; bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 800;
+        background: rgba(0,0,0,0.3);
+        z-index: 999;
     }
 }
 

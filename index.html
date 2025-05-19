@@ -3,34 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy - Home</title>
     <link rel="stylesheet" href="style.css">
-    <title>Home</title>
 </head>
 <body>
-    <header>
-        <div class="navbar">
-            <div class="logo">
-                LEGACY
+    <div class="page-container">
+        <header>
+            <div class="header-container">
+                <div class="logo">LEGACY</div>
+                <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle menu" aria-controls="sidebar" aria-expanded="false">&#9776;</button>
             </div>
-            <a href="javascript:void(0)" id="openbtn" onclick="opennav()">&#9776;</a>
-            <nav id="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&#10006;</a>
-                <ul id="menu-list">
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="about.html">About</a></li>
-                  <li><a href="services.html">Services</a></li>
-                  <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>    
-    </header>
-    <section class="hero">
-        <h2>Building the Future with code and innovation</h2>
-        <p>your one-stop solution for amazing services. <br>experience the fusion of creativity and technology in software development.</p>
-        <a href="services.html" class="cta-button">Explore Service</a>
-    </section>
-    <footer>
-        <p>&copy; 2025 My website. All Rights Reserved.</p>
-    </footer>
+        </header>
+        <div class="content-wrapper">
+            <section class="container-sidebar">
+                <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+                    <ul class="menu-list">
+                        <li><a href="index.html" aria-current="page">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="software.html">Software</a></li>
+                    </ul>
+                </nav>
+            </section>
+            <main>
+                <section class="hero">
+                    <h1>Building the Future with Code and Innovation</h1>
+                    <p>Your one-stop solution for amazing services.<br>
+                    Experience the fusion of creativity and technology in software development.</p>
+                    <a href="services.html" class="cta-button">Explore Services</a>
+                </section>
+            </main>
+        </div>
+        <footer>
+            <p>&copy; 2025 Legacy. All Rights Reserved.</p>
+        </footer>
+    </div>
+    <script src="sidebar.js"></script>
 </body>
 </html>

@@ -51,18 +51,37 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleBtn.setAttribute('aria-controls', 'sidebar');
     sidebar.setAttribute('aria-hidden', 'true');
     
-    // Desktop hover functionality
-    // Note: Main hover effect is handled by CSS
-    // This just ensures ARIA attributes are updated correctly
-    if (window.matchMedia('(min-width: 1024px)').matches) {
-        sidebar.addEventListener('mouseenter', function() {
-            sidebar.setAttribute('aria-hidden', 'false');
-            toggleBtn.setAttribute('aria-expanded', 'true');
-        });
-        
-        sidebar.addEventListener('mouseleave', function() {
-            sidebar.setAttribute('aria-hidden', 'true');
-            toggleBtn.setAttribute('aria-expanded', 'false');
-        });
+    // Handle different screen sizes
+    const mediaQuery = window.matchMedia('(min-width: 1024px)');
+    
+    function handleScreenSizeChange(e) {
+        if (e.matches) {
+            // Desktop behavior: hover functionality
+            sidebar.addEventListener('mouseenter', function() {
+                sidebar.setAttribute('aria-hidden', 'false');
+                toggleBtn.setAttribute('aria-expanded', 'true');
+            });
+            
+            sidebar.addEventListener('mouseleave', function() {
+                sidebar.setAttribute('aria-hidden', 'true');
+                toggleBtn.setAttribute('aria-expanded', 'false');
+            });
+            
+            // Reset any mobile state when switching to desktop
+            if (sidebar.classList.contains('sidebar-open')) {
+                closeSidebar();
+            }
+        } else {
+            // Mobile behavior: ensure proper state
+            // Remove desktop-specific event listeners
+            sidebar.removeEventListener('mouseenter', null);
+            sidebar.removeEventListener('mouseleave', null);
+        }
     }
+    
+    // Initial check
+    handleScreenSizeChange(mediaQuery);
+    
+    // Listen for changes
+    mediaQuery.addEventListener('change', handleScreenSizeChange);
 });

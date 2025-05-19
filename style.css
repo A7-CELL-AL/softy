@@ -136,7 +136,7 @@ h1, h2 {
     .sidebar {
         left: -200px;
         width: 200px;
-        transition: left 0.3s;
+        transition: right 0.3s;
     }
     .sidebar.sidebar-open {
         left: 0;

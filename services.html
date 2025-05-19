@@ -3,52 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy - Services</title>
     <link rel="stylesheet" href="style.css">
-    <title>Services</title>
 </head>
 <body>
     <header>
-        <div class="navbar">
-            <div class="logo">
-                LEGACY
-            </div>
-            <a href="javascript:void(0)" id="openbtn" onclick="opennav()">&#9776;</a>
-            <nav id="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&#10006;</a>
-                <ul id="menu-list">
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="about.html">About</a></li>
-                  <li><a href="services.html">Services</a></li>
-                  <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>    
-    </header>
-    <section id="services">
-        <h1>Our Tech Services</h1>
-        <p>Explore our cutting-edge software and tech solution designed to elevate your business.</p>
-        <div class="services-container">
-            <div class="service-box">
-                <a href="software.html">
-                    <h3>Software Development</h3>
-                    <img src="software.png" alt="App Development">
-                    <p>We build responsive, high-performance ebsites with modern UI/UX designs and Custom-built applications for Businesses.</p>
-                </a>
-            </div>
-            <div class="service-box">
-                <h3>AI integration</h3>
-                <img src="AI.png" alt="AI & Automotion">
-                <p>Impliment machine learning into real-world applications.</p>
-            </div>
-            <div class="service-box">
-                <h3>CyberSecurity</h3>
-                <img src="cynersecurity.png" alt="cybersecurity">
-                <p>Keeping your data safe with ethical hacking techniques.</p>
-            </div>
+        <div class="header-container">
+            <div class="logo">LEGACY</div>
+            <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Open menu">&#9776;</button>
         </div>
+    </header>
+    <section class="container-sidebar">
+        <nav class="sidebar" id="sidebar">
+            <ul class="menu-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html" aria-current="page">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="software.html">Software</a></li>
+            </ul>
+        </nav>
     </section>
+    <main>
+        <section id="services">
+            <h2>Our Services</h2>
+            <div class="services-container">
+                <div class="service-box">
+                    <img src="AI.png" alt="Web Development Icon">
+                    <h3>Web Development</h3>
+                    <p>Custom websites and web applications tailored to your business needs.</p>
+                </div>
+                <div class="service-box">
+                    <img src="software.png" alt="Mobile App Icon">
+                    <h3>Mobile Apps</h3>
+                    <p>Native and cross-platform mobile solutions for Android and iOS.</p>
+                </div>
+                <div class="service-box">
+                    <img src="cynersecurity.png" alt="Consulting Icon">
+                    <h3>IT Consulting</h3>
+                    <p>Expert advice and strategy to help you leverage technology for growth.</p>
+                </div>
+            </div>
+        </section>
+    </main>
     <footer>
-        <p>&copy; 2025 My website. All Rights Reserved.</p>
+        <p>&copy; 2025 Legacy. All Rights Reserved.</p>
     </footer>
+    <script src="sidebar.js"></script>
 </body>
 </html>

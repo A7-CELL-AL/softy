@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.getElementById('sidebar');
     const toggleBtn = document.getElementById('sidebar-toggle');
     const body = document.body;
+    let hoverTimeout;
     
     // Helper functions for opening and closing sidebar
     function openSidebar() {
@@ -18,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         sidebar.setAttribute('aria-hidden', 'true');
     }
 
-    // Mobile: Toggle sidebar on button click
+    // Toggle sidebar on button click (mobile)
     toggleBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         if (sidebar.classList.contains('sidebar-open')) {
@@ -28,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Mobile: Close sidebar when clicking outside
+    // Close sidebar when clicking outside (mobile)
     document.addEventListener('click', function(event) {
         if (
             sidebar.classList.contains('sidebar-open') &&
@@ -39,49 +40,51 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Close sidebar on Escape key for accessibility
+    // Close sidebar on Escape key
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape' && sidebar.classList.contains('sidebar-open')) {
             closeSidebar();
         }
     });
+
+    // Desktop hover functionality (only on larger screens)
+    function handleHoverInteractions() {
+        const mediaQuery = window.matchMedia('(min-width: 1024px)');
+        
+        function setupHoverListeners(matches) {
+            if (matches) {
+                // Desktop behavior
+                sidebar.addEventListener('mouseenter', function() {
+                    clearTimeout(hoverTimeout);
+                    openSidebar();
+                });
+                
+                sidebar.addEventListener('mouseleave', function() {
+                    hoverTimeout = setTimeout(function() {
+                        closeSidebar();
+                    }, 300); // Small delay to prevent accidental closing
+                });
+            } else {
+                // Mobile behavior - remove hover listeners
+                sidebar.removeEventListener('mouseenter', openSidebar);
+                sidebar.removeEventListener('mouseleave', closeSidebar);
+            }
+        }
+        
+        // Initial setup
+        setupHoverListeners(mediaQuery.matches);
+        
+        // Listen for changes
+        mediaQuery.addEventListener('change', function(e) {
+            setupHoverListeners(e.matches);
+        });
+    }
     
+    handleHoverInteractions();
+
     // Initialize ARIA attributes
     toggleBtn.setAttribute('aria-expanded', 'false');
     toggleBtn.setAttribute('aria-controls', 'sidebar');
     sidebar.setAttribute('aria-hidden', 'true');
-    
-    // Handle different screen sizes
-    const mediaQuery = window.matchMedia('(min-width: 1024px)');
-    
-    function handleScreenSizeChange(e) {
-        if (e.matches) {
-            // Desktop behavior: hover functionality
-            sidebar.addEventListener('mouseenter', function() {
-                sidebar.setAttribute('aria-hidden', 'false');
-                toggleBtn.setAttribute('aria-expanded', 'true');
-            });
-            
-            sidebar.addEventListener('mouseleave', function() {
-                sidebar.setAttribute('aria-hidden', 'true');
-                toggleBtn.setAttribute('aria-expanded', 'false');
-            });
-            
-            // Reset any mobile state when switching to desktop
-            if (sidebar.classList.contains('sidebar-open')) {
-                closeSidebar();
-            }
-        } else {
-            // Mobile behavior: ensure proper state
-            // Remove desktop-specific event listeners
-            sidebar.removeEventListener('mouseenter', null);
-            sidebar.removeEventListener('mouseleave', null);
-        }
-    }
-    
-    // Initial check
-    handleScreenSizeChange(mediaQuery);
-    
-    // Listen for changes
-    mediaQuery.addEventListener('change', handleScreenSizeChange);
+    sidebar.setAttribute('role', 'navigation');
 });

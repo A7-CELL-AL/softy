@@ -3,33 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy - About</title>
     <link rel="stylesheet" href="style.css">
-    <title>About</title>
 </head>
 <body>
-    <header>
-        <div class="navbar">
-            <div class="logo">
-                LEGACY
+    <div class="page-container">
+        <header>
+            <div class="header-container">
+                <div class="logo">LEGACY</div>
+                <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle menu">&#9776;</button>
             </div>
-            <a href="javascript:void(0)" id="openbtn" onclick="opennav()">&#9776;</a>
-            <nav id="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&#10006;</a>
-                <ul id="menu-list">
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="about.html">About</a></li>
-                  <li><a href="services.html">Services</a></li>
-                  <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>    
-    </header>
-    <section class="about">
-        <h2>Who Am I</h2>
-        <p>We provide top-quality solutions for your needs with years of experience in software Development, AI, and CyberSecurity, I craft seamless Tech solutions that drives innovation.</p>
-    </section>
-    <footer>
-        <p>&copy; 2025 My website. All Rights Reserved.</p>
-    </footer>
+        </header>
+        <div class="content-wrapper">
+            <section class="container-sidebar">
+                <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+                    <ul class="menu-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html" aria-current="page">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="software.html">Software</a></li>
+                    </ul>
+                </nav>
+            </section>
+            <main>
+                <section class="about">
+                    <h2>About Legacy</h2>
+                    <p>
+                        Legacy is a leading provider of innovative technology solutions. Our mission is to empower businesses and individuals through cutting-edge software, expert consulting, and reliable support.
+                    </p>
+                    <p>
+                        With years of experience and a passion for excellence, we deliver results that drive success for our clients.
+                    </p>
+                </section>
+            </main>
+        </div>
+        <footer>
+            <p>&copy; 2025 Legacy. All Rights Reserved.</p>
+        </footer>
+    </div>
+    <script src="sidebar.js"></script>
 </body>
 </html>

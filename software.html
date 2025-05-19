@@ -3,26 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Development</title>
+    <title>Legacy - Software</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="navbar">
-            <div class="logo">
-                LEGACY
+    <div class="page-container">
+        <header>
+            <div class="header-container">
+                <div class="logo">LEGACY</div>
+                <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle menu">&#9776;</button>
             </div>
-            <a href="javascript:void(0)" id="openbtn" onclick="opennav()">&#9776;</a>
-            <nav id="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&#10006;</a>
-                <ul id="menu-list">
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="about.html">About</a></li>
-                  <li><a href="services.html">Services</a></li>
-                  <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>    
-    </header>
+        </header>
+        <div class="content-wrapper">
+            <section class="container-sidebar">
+                <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+                    <ul class="menu-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="software.html" aria-current="page">Software</a></li>
+                    </ul>
+                </nav>
+            </section>
+            <main>
+                <section class="about">
+                    <h2>Our Software Solutions</h2>
+                    <p>
+                        We develop and deliver a wide range of software products, from business management tools to custom applications tailored to your unique needs.
+                    </p>
+                    <ul>
+                        <li>Business Management Software</li>
+                        <li>Inventory & POS Systems</li>
+                        <li>Custom Web & Mobile Apps</li>
+                        <li>Automation Tools</li>
+                    </ul>
+                </section>
+            </main>
+        </div>
+        <footer>
+            <p>&copy; 2025 Legacy. All Rights Reserved.</p>
+        </footer>
+    </div>
+    <script src="sidebar.js"></script>
 </body>
 </html>
